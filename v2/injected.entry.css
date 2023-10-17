@@ -1,0 +1,7 @@
+[data-uno-filled="light"] {
+  background-color: hsl(210, 100%, 93%) !important
+}
+
+[data-uno-filled="dark"] {
+  background-color: rgb(36, 107, 179) !important;
+}

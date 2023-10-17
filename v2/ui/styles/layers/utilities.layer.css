@@ -1,0 +1,131 @@
+/* Custom extensions to Tailwind's "utilities" layer can be added here. */
+
+@layer utilities {
+  /* --- Centering --- */
+
+  .absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .absolute-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .absolute-center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .fixed-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fixed-center-x {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .fixed-center-y {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* --- Pseudo-elements --- */
+
+  .pseudo-surface {
+    content: '';
+    display: block;
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+    transition: inherit;
+    top: 0; left: 0; width: 100%; height: 100%;
+  }
+
+  /* --- Shapes --- */
+
+  .rounded-ellipse {
+    border-radius: 100%;
+  }
+
+  /* --- Gradients / fadeouts --- */
+
+  .fadeout-none {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .fadeout-t {
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 95%, transparent 100%);
+    mask-image: linear-gradient(to top, black 50%, transparent 95%, transparent 100%);
+  }
+
+  .fadeout-r {
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 95%, transparent 100%);
+    mask-image: linear-gradient(to right, black 50%, transparent 95%, transparent 100%);
+  }
+
+  .fadeout-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 95%, transparent 100%);
+  }
+
+  .fadeout-l {
+    -webkit-mask-image: linear-gradient(to left, black 50%, transparent 95%, transparent 100%);
+    mask-image: linear-gradient(to left, black 50%, transparent 95%, transparent 100%);
+  }
+
+  /* --- Hacks / fixes / misc. utilities --- */
+
+  /*
+    In some cases, Safari won't respect "overflow:hidden" because of a rendering
+    bug that results when using advanced filter effects. We can use the CSS
+    below to force a new stacking context as a workaround.
+
+    @see https://stackoverflow.com/questions/49066011/overflow-hidden-with-border-radius-not-working-on-safari
+  */
+  .force-stacking-context { isolation: isolate; }
+  .force-stacking-context-mask-image-strategy {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: -webkit-radial-gradient(white, black);
+  }
+
+  .suppress-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .suppress-native-resizer::-webkit-resizer {
+    display: none;
+  }
+
+  .suppress-native-scrollbar-x::-webkit-scrollbar {
+    display: none; /* Chrome / Safari */
+    height: 0 !important; /* Chrome / Safari */
+  }
+  .suppress-native-scrollbar-x {
+    scrollbar-width: none; /* Firefox */
+    overflow-x: -moz-scrollbars-none; /* Firefox */
+    -ms-overflow-style: none; /* IE10+ */
+  }
+
+  .suppress-native-scrollbar-y::-webkit-scrollbar {
+    display: none; /* Chrome / Safari */
+    width: 0 !important; /* Chrome / Safari */
+  }
+  .suppress-native-scrollbar-y {
+    scrollbar-width: none; /* Firefox */
+    overflow-y: -moz-scrollbars-none; /* Firefox */
+    -ms-overflow-style: none; /* IE10+ */
+  }
+}

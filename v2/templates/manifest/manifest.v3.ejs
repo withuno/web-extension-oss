@@ -1,0 +1,78 @@
+{
+  "name": "<%- process.env.APP_NAME %>",
+  "manifest_version": 3,
+  "version": "<%- process.env.EXT_VERSION %>",
+  "description": "Auto sign-in to your Uno secured accounts and access your passwords + 2FA codes from the browser.",
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' blob: data: https: data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src <%- process.env.API_SERVER %><%- process.env.WATCH === "true" ? " http://localhost:1234" : "" %> https://accounts.google.com https://cdn.segment.com https://api.segment.io https://gmail.googleapis.com https://accounts.google.com/o/oauth2/revoke https://o4504873656909824.ingest.sentry.io https://asset.brandfetch.io;"
+  },
+  "web_accessible_resources": [{
+    "resources": [
+      "images/*",
+      "modals/*",
+      "vendor/*",
+      "*.js",
+      "*.css",
+      "*.json",
+      "*.wasm"
+    ],
+    "matches": [
+      "<all_urls>"
+    ]
+  }],
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16-2x.png",
+    "32": "images/icon-32-2x.png",
+    "48": "images/icon-48-2x.png",
+    "128": "images/icon-128-2x.png",
+    "256": "images/icon-256-2x.png",
+    "512": "images/icon-512-2x.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [<%- vendors.map((v) => JSON.stringify(v)).join(", ") %>, "content.entry.js"],
+      "css": ["injected.entry.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "identity",
+    "storage",
+    "activeTab",
+    "webNavigation",
+    "nativeMessaging",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<%- process.env.API_SERVER %>/*",
+    "<all_urls>"
+  ],
+  "key": "<%- process.env.MANIFEST_KEY %>",
+  "oauth2": {
+    "client_id": "<%- process.env.CLIENT_ID %>",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.readonly",
+      "https://www.googleapis.com/auth/gmail.modify"
+    ],
+    "redirect_uris": ["https://<%- process.env.EXTENSION_ID %>.chromiumapp.org/"]
+  },
+  "background": {
+    "service_worker": "background.entry.mv3.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "images/icon-16-2x.png",
+      "32": "images/icon-32-2x.png"
+    },
+    "default_title": "Uno",
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "<%- process.env.FIREFOX_ID %>"
+    }
+  }
+}

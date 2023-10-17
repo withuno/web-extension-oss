@@ -1,0 +1,115 @@
+<div
+  id="uno-modal-controller"
+  class="modal-in bg-white rounded-[16px] shadow-xl flex flex-col items-start w-full p-[16px]"
+  style="
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.19);
+  "
+>
+  <div class="flex justify-between w-full">
+    <div class="uno-modalContainer-header-logo">
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect width="40" height="40" rx="20" fill="#FC511F" />
+        <path
+          d="M22.5243 31.0021C19.3229 28.7371 18.5685 24.3167 20.85 21.1566C23.1315 17.9966 27.584 17.2476 30.767 19.4944C33.9684 21.7594 34.7043 26.1798 32.4413 29.3399C30.1598 32.5182 25.7073 33.2671 22.5243 31.0021ZM27.0504 24.682C26.7376 24.4628 26.3145 24.5359 26.0937 24.8464C25.8729 25.1569 25.9465 25.5771 26.2593 25.7962C26.572 26.0154 26.9952 25.9424 27.216 25.6319C27.4184 25.3396 27.3632 24.9012 27.0504 24.682Z"
+          fill="white"
+        />
+        <path
+          d="M29.2216 16.3163C27.6025 16.9921 25.7075 16.2432 25.0267 14.6358C24.8795 14.2887 24.4747 14.1243 24.1252 14.2705C23.7756 14.4166 23.61 14.8184 23.7572 15.1655C24.4379 16.7729 23.6836 18.6544 22.0645 19.3302C20.427 20.0243 18.5503 19.2571 17.8511 17.6497C16.3424 14.0695 18.0167 9.92308 21.6229 8.40698C25.2291 6.89088 29.4056 8.58965 30.9143 12.1516C31.6135 13.7773 30.8407 15.6404 29.2216 16.3163Z"
+          fill="white"
+        />
+        <path
+          d="M12.0554 14.7454C13.4905 15.7683 13.8401 17.7594 12.8098 19.1841C12.589 19.4947 12.6626 19.9148 12.9754 20.134C13.2882 20.3532 13.7113 20.2801 13.9321 19.9696C14.9625 18.5448 16.9679 18.1978 18.403 19.2207C19.8381 20.2436 20.1877 22.2346 19.1574 23.6594C16.8759 26.8377 12.4418 27.5683 9.24041 25.3216C6.03901 23.0748 5.30305 18.6544 7.56611 15.4943C8.59645 14.0513 10.6019 13.7225 12.0554 14.7454Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+    <div class="uno-overlay-header-actions">
+      <!-- X out icon -->
+      <button id="close-overlay" class="uno-close-overlay">
+        <svg
+          style="
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 224px;
+            top: 16px;
+          "
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.95264 17.4736C13.5845 17.4736 17.4194 13.6304 17.4194 9.00684C17.4194 4.375 13.5762 0.540039 8.94434 0.540039C4.3208 0.540039 0.48584 4.375 0.48584 9.00684C0.48584 13.6304 4.3291 17.4736 8.95264 17.4736ZM6.16357 12.4932C5.78174 12.4932 5.48291 12.186 5.48291 11.8042C5.48291 11.6216 5.54932 11.4473 5.68213 11.3228L7.98145 9.01514L5.68213 6.71582C5.54932 6.58301 5.48291 6.41699 5.48291 6.23438C5.48291 5.84424 5.78174 5.55371 6.16357 5.55371C6.35449 5.55371 6.50391 5.62012 6.63672 5.74463L8.95264 8.05225L11.2852 5.73633C11.4263 5.59521 11.5757 5.53711 11.7583 5.53711C12.1401 5.53711 12.4473 5.83594 12.4473 6.21777C12.4473 6.40869 12.3892 6.55811 12.2397 6.70752L9.93213 9.01514L12.2314 11.3145C12.3726 11.439 12.439 11.6133 12.439 11.8042C12.439 12.186 12.1318 12.4932 11.7417 12.4932C11.5508 12.4932 11.3765 12.4268 11.252 12.2939L8.95264 9.98633L6.66162 12.2939C6.52881 12.4268 6.35449 12.4932 6.16357 12.4932Z"
+            fill="#CED6DF"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    id="feedback-buttons-container"
+    class="flex flex-col justify-center gap-[16px] py-[16px]"
+  >
+    <p class="text-[16px] font-bold leading-[18px]">Submit Feedback</p>
+    <button id="send-feedback-1" class="feedback-button">
+      <span class="feedback-button-inner"
+        >Magic Login didn’t work properly</span
+      >
+    </button>
+    <button id="send-feedback-2" class="feedback-button">
+      <span class="feedback-button-inner">My logins didn't save properly</span>
+    </button>
+    <button id="send-feedback-3" class="feedback-button">
+      <span class="feedback-button-inner"
+        >Credit Card / Address didn't populate the fields properly</span
+      >
+    </button>
+    <button id="send-feedback-4" class="feedback-button">
+      <span class="feedback-button-inner">Peekaboo did not work</span>
+    </button>
+    <button id="send-feedback-other" class="feedback-button">
+      <span class="feedback-button-inner">Other feedback</span>
+    </button>
+  </div>
+  <div
+    id="additional-details"
+    style="display: none"
+    class="flex-col gap-[16px] pt-[16px]"
+  >
+    <span class="font-bold text-[15px]">Share additional details?</span>
+    <textarea
+      id="details-input"
+      placeholder="Write additional details, steps to reproduce, etc..."
+      class="additional-details-input"
+      type="text"
+    ></textarea>
+    <div class="flex flex-row content-center items-center gap-[16px]">
+      <input
+        id="share-more-info-checkbox"
+        checked
+        class="focus:ring-white cursor-pointer"
+        style="border-radius: 0px !important; color: black"
+        type="checkbox"
+      />
+      <span class="text-[#717280] font-medium text-[10px]"
+        >Send the website URL along with the feedback to Uno team.</span
+      >
+    </div>
+    <div class="flex justify-end">
+      <button
+        id="share-feedback"
+        class="p-[16px] w-[124px] bg-[#B0FF00] text-[#264E25] rounded-[20px] text-[9px] font-bold hover:bg-[#b2f524] focus:bg-[#a2e217]"
+      >
+        SHARE FEEDBACK
+      </button>
+    </div>
+  </div>
+</div>

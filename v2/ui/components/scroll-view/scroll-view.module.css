@@ -1,0 +1,56 @@
+/* --- Shared styles --- */
+
+.ScrollView {
+  min-height: 0;
+  scroll-behavior: smooth;
+}
+
+/* --- Y-axis scrolling --- */
+
+.ScrollView.y:not(.isDisabled) {
+  overflow-y: auto;
+}
+
+.ScrollView.y.isDisabled {
+  overflow-y: hidden;
+}
+
+.ScrollView.y.shadow.top:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to top, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to top, black 85%, transparent 95%, transparent 100%);
+}
+
+.ScrollView.y.shadow.bottom:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 95%, transparent 100%);
+}
+
+.ScrollView.y.shadow.top_bottom:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, transparent 5%, black 10%, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to top, transparent 0%, transparent 5%, black 10%, black 85%, transparent 95%, transparent 100%);
+}
+
+/* --- X-axis scrolling --- */
+
+.ScrollView.x:not(.isDisabled) {
+  overflow-y: auto;
+}
+
+.ScrollView.x.isDisabled {
+  overflow-y: hidden;
+}
+
+.ScrollView.x.shadow.left:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to left, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to left, black 85%, transparent 95%, transparent 100%);
+}
+
+.ScrollView.x.shadow.right:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to right, black 85%, transparent 95%, transparent 100%);
+}
+
+.ScrollView.x.shadow.left_right:not(.noShadows) {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, transparent 5%, black 10%, black 85%, transparent 95%, transparent 100%);
+  mask-image: linear-gradient(to left, transparent 0%, transparent 5%, black 10%, black 85%, transparent 95%, transparent 100%);
+}

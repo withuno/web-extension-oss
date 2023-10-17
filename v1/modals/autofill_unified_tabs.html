@@ -1,0 +1,532 @@
+<div
+  id="uno-modal-controller"
+  class="modal-in bg-white rounded-[16px] shadow-xl flex flex-col items-start w-full gap-x-[16px]"
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    gap: 16px;
+
+    background: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.19);
+    border-radius: 16px;
+  "
+>
+  <!-- Header + close button -->
+  <div
+    style="
+      /* Auto layout */
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 16px;
+
+      width: 228px;
+      height: 40px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    "
+  >
+    <!-- Uno logo -->
+    <svg
+      style="
+        width: 40px;
+        height: 40px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      "
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="40" height="40" rx="20" fill="#FC511F" />
+      <path
+        d="M22.5243 31.0034C19.3229 28.7384 18.5685 24.318 20.85 21.1579C23.1315 17.9978 27.584 17.2489 30.767 19.4957C33.9684 21.7607 34.7043 26.1811 32.4413 29.3412C30.1598 32.5195 25.7073 33.2684 22.5243 31.0034ZM27.0504 24.6833C26.7376 24.4641 26.3145 24.5372 26.0937 24.8477C25.8729 25.1582 25.9465 25.5783 26.2593 25.7975C26.572 26.0167 26.9952 25.9437 27.216 25.6331C27.4184 25.3409 27.3632 24.9025 27.0504 24.6833Z"
+        fill="white"
+      />
+      <path
+        d="M29.2216 16.3163C27.6025 16.9921 25.7075 16.2432 25.0267 14.6358C24.8795 14.2887 24.4747 14.1243 24.1252 14.2705C23.7756 14.4166 23.61 14.8184 23.7572 15.1655C24.4379 16.7729 23.6836 18.6544 22.0645 19.3302C20.427 20.0243 18.5503 19.2571 17.8511 17.6497C16.3424 14.0695 18.0167 9.92308 21.6229 8.40698C25.2291 6.89088 29.4056 8.58965 30.9143 12.1516C31.6135 13.7773 30.8407 15.6404 29.2216 16.3163Z"
+        fill="white"
+      />
+      <path
+        d="M12.0554 14.7465C13.4905 15.7694 13.8401 17.7604 12.8098 19.1852C12.589 19.4957 12.6626 19.9158 12.9754 20.135C13.2882 20.3542 13.7113 20.2811 13.9321 19.9706C14.9625 18.5458 16.9679 18.1988 18.403 19.2217C19.8381 20.2446 20.1877 22.2356 19.1574 23.6604C16.8759 26.8387 12.4418 27.5694 9.24041 25.3226C6.03901 23.0759 5.30305 18.6554 7.56611 15.4954C8.59645 14.0523 10.6019 13.7236 12.0554 14.7465Z"
+        fill="white"
+      />
+    </svg>
+    <!-- X out button -->
+    <button id="close-overlay">
+      <svg
+        style="
+          width: 20px;
+          height: 20px;
+
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 17px;
+          line-height: 20px;
+          display: flex;
+          align-items: center;
+          letter-spacing: -0.004em;
+
+          /* grayscale3 */
+
+          color: #ced6df;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        "
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.95264 17.4736C13.5845 17.4736 17.4194 13.6304 17.4194 9.00684C17.4194 4.375 13.5762 0.540039 8.94434 0.540039C4.3208 0.540039 0.48584 4.375 0.48584 9.00684C0.48584 13.6304 4.3291 17.4736 8.95264 17.4736ZM6.16357 12.4932C5.78174 12.4932 5.48291 12.186 5.48291 11.8042C5.48291 11.6216 5.54932 11.4473 5.68213 11.3228L7.98145 9.01514L5.68213 6.71582C5.54932 6.58301 5.48291 6.41699 5.48291 6.23438C5.48291 5.84424 5.78174 5.55371 6.16357 5.55371C6.35449 5.55371 6.50391 5.62012 6.63672 5.74463L8.95264 8.05225L11.2852 5.73633C11.4263 5.59521 11.5757 5.53711 11.7583 5.53711C12.1401 5.53711 12.4473 5.83594 12.4473 6.21777C12.4473 6.40869 12.3892 6.55811 12.2397 6.70752L9.93213 9.01514L12.2314 11.3145C12.3726 11.439 12.439 11.6133 12.439 11.8042C12.439 12.186 12.1318 12.4932 11.7417 12.4932C11.5508 12.4932 11.3765 12.4268 11.252 12.2939L8.95264 9.98633L6.66162 12.2939C6.52881 12.4268 6.35449 12.4932 6.16357 12.4932Z"
+          fill="#CED6DF"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Tabs -->
+  <div
+    id="unified-tabs"
+    style="
+      /* Frame 1515 */
+
+      /* Auto layout */
+
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 16px;
+
+      width: 228px;
+      height: 27px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    "
+  >
+    <!-- Credit cards tab -->
+    <!-- Button enabled -->
+    <button
+      id="cc-tab-enabled"
+      style="
+        /* Frame 1514 */
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
+
+        width: 106px;
+        height: 27px;
+
+        background: #f2f2f2;
+        border-radius: 1000px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+      "
+    >
+      <svg
+        style="
+          /* 􀍯 */
+
+          width: 13px;
+          height: 11px;
+
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #000000;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        "
+        width="12"
+        height="9"
+        viewBox="0 0 12 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.91895 6.85303H3.99561C4.12451 6.85303 4.22852 6.81494 4.30762 6.73877C4.38672 6.65967 4.42627 6.55859 4.42627 6.43555V5.62256C4.42627 5.49658 4.38672 5.39551 4.30762 5.31934C4.22852 5.24023 4.12451 5.20068 3.99561 5.20068H2.91895C2.79004 5.20068 2.68604 5.24023 2.60693 5.31934C2.52783 5.39551 2.48828 5.49658 2.48828 5.62256V6.43555C2.48828 6.55859 2.52783 6.65967 2.60693 6.73877C2.68604 6.81494 2.79004 6.85303 2.91895 6.85303ZM1.35889 3.979H10.4116V2.89795H1.35889V3.979ZM2.17188 8.7207H9.59424C10.0952 8.7207 10.479 8.5874 10.7456 8.3208C11.0122 8.05713 11.1455 7.67627 11.1455 7.17822V2.48486C11.1455 1.98682 11.0122 1.60596 10.7456 1.34229C10.479 1.07568 10.0952 0.942383 9.59424 0.942383H2.17188C1.6709 0.942383 1.28711 1.07568 1.02051 1.34229C0.753906 1.60596 0.620605 1.98682 0.620605 2.48486V7.17822C0.620605 7.67627 0.753906 8.05713 1.02051 8.3208C1.28711 8.5874 1.6709 8.7207 2.17188 8.7207ZM2.29492 7.58691C2.11914 7.58691 1.98438 7.54297 1.89062 7.45508C1.7998 7.36426 1.75439 7.22656 1.75439 7.04199V2.62549C1.75439 2.43799 1.7998 2.30029 1.89062 2.2124C1.98438 2.12158 2.11914 2.07617 2.29492 2.07617H9.47119C9.64697 2.07617 9.78027 2.12158 9.87109 2.2124C9.96484 2.30029 10.0117 2.43799 10.0117 2.62549V7.04199C10.0117 7.22656 9.96484 7.36426 9.87109 7.45508C9.78027 7.54297 9.64697 7.58691 9.47119 7.58691H2.29492Z"
+          fill="black"
+        />
+      </svg>
+      <span
+        style="
+          /* Credit Cards */
+
+          height: 11px;
+
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #000000;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        "
+        >Credit Cards
+      </span>
+    </button>
+    <!-- Button disabled-->
+    <button
+      id="cc-tab-disabled"
+      style="
+        /* Frame 1514 */
+
+        box-sizing: border-box;
+
+        /* Auto layout */
+
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
+
+        width: 106px;
+        height: 27px;
+
+        background: #ffffff;
+        border: 1px solid #f2f2f2;
+        border-radius: 1000px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+      "
+    >
+      <svg
+        style="
+          /* 􀍯 */
+
+          width: 13px;
+          height: 11px;
+
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #7c8187;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        "
+        width="12"
+        height="9"
+        viewBox="0 0 12 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.91895 6.85303H3.99561C4.12451 6.85303 4.22852 6.81494 4.30762 6.73877C4.38672 6.65967 4.42627 6.55859 4.42627 6.43555V5.62256C4.42627 5.49658 4.38672 5.39551 4.30762 5.31934C4.22852 5.24023 4.12451 5.20068 3.99561 5.20068H2.91895C2.79004 5.20068 2.68604 5.24023 2.60693 5.31934C2.52783 5.39551 2.48828 5.49658 2.48828 5.62256V6.43555C2.48828 6.55859 2.52783 6.65967 2.60693 6.73877C2.68604 6.81494 2.79004 6.85303 2.91895 6.85303ZM1.35889 3.979H10.4116V2.89795H1.35889V3.979ZM2.17188 8.7207H9.59424C10.0952 8.7207 10.479 8.5874 10.7456 8.3208C11.0122 8.05713 11.1455 7.67627 11.1455 7.17822V2.48486C11.1455 1.98682 11.0122 1.60596 10.7456 1.34229C10.479 1.07568 10.0952 0.942383 9.59424 0.942383H2.17188C1.6709 0.942383 1.28711 1.07568 1.02051 1.34229C0.753906 1.60596 0.620605 1.98682 0.620605 2.48486V7.17822C0.620605 7.67627 0.753906 8.05713 1.02051 8.3208C1.28711 8.5874 1.6709 8.7207 2.17188 8.7207ZM2.29492 7.58691C2.11914 7.58691 1.98438 7.54297 1.89062 7.45508C1.7998 7.36426 1.75439 7.22656 1.75439 7.04199V2.62549C1.75439 2.43799 1.7998 2.30029 1.89062 2.2124C1.98438 2.12158 2.11914 2.07617 2.29492 2.07617H9.47119C9.64697 2.07617 9.78027 2.12158 9.87109 2.2124C9.96484 2.30029 10.0117 2.43799 10.0117 2.62549V7.04199C10.0117 7.22656 9.96484 7.36426 9.87109 7.45508C9.78027 7.54297 9.64697 7.58691 9.47119 7.58691H2.29492Z"
+          fill="#7C8187"
+        />
+      </svg>
+
+      <span
+        style="
+          /* Credit Cards */
+
+          height: 11px;
+
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #7c8187;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        "
+        >Credit Cards
+      </span>
+    </button>
+    <!-- Addresses tab -->
+    <!-- Button disabled -->
+    <button
+      id="address-tab-disabled"
+      style="
+        /* Frame 1513 */
+
+        box-sizing: border-box;
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
+
+        width: 106px;
+        height: 27px;
+
+        background: #ffffff;
+        border: 1px solid #f2f2f2;
+        border-radius: 1000px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+      "
+    >
+      <!-- SVG disabled -->
+      <svg
+        style="
+          /* 􀷌 */
+
+          width: 11px;
+          height: 11px;
+
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #7c8187;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        "
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.92725 9.46777C5.56592 9.46777 6.16504 9.34619 6.72461 9.10303C7.28418 8.86279 7.77637 8.52881 8.20117 8.10107C8.62891 7.67627 8.96436 7.18408 9.20752 6.62451C9.45068 6.06494 9.57227 5.46582 9.57227 4.82715C9.57227 4.19141 9.45068 3.59375 9.20752 3.03418C8.96436 2.47461 8.62891 1.98096 8.20117 1.55322C7.77637 1.12549 7.28271 0.791504 6.72021 0.55127C6.16064 0.308105 5.56299 0.186523 4.92725 0.186523C4.2915 0.186523 3.69238 0.308105 3.12988 0.55127C2.57031 0.791504 2.07666 1.12549 1.64893 1.55322C1.22412 1.98096 0.890137 2.47461 0.646973 3.03418C0.406738 3.59375 0.286621 4.19141 0.286621 4.82715C0.286621 5.46582 0.406738 6.06494 0.646973 6.62451C0.890137 7.18408 1.22559 7.67627 1.65332 8.10107C2.08105 8.52881 2.57471 8.86279 3.13428 9.10303C3.69385 9.34619 4.2915 9.46777 4.92725 9.46777ZM4.92725 8.31201C4.44678 8.31201 3.99561 8.22119 3.57373 8.03955C3.15186 7.86084 2.78125 7.61328 2.46191 7.29688C2.14258 6.97754 1.89355 6.60693 1.71484 6.18506C1.53613 5.76318 1.44678 5.31055 1.44678 4.82715C1.44678 4.34375 1.53613 3.89258 1.71484 3.47363C1.89355 3.05176 2.14258 2.68115 2.46191 2.36182C2.78125 2.04248 3.15039 1.79346 3.56934 1.61475C3.99121 1.43311 4.44385 1.34229 4.92725 1.34229C5.41064 1.34229 5.86328 1.43311 6.28516 1.61475C6.70703 1.79346 7.07617 2.04248 7.39258 2.36182C7.71191 2.68115 7.9624 3.05176 8.14404 3.47363C8.32568 3.89258 8.4165 4.34375 8.4165 4.82715C8.4165 5.31055 8.32568 5.76318 8.14404 6.18506C7.96533 6.60693 7.71631 6.97754 7.39697 7.29688C7.07764 7.61328 6.70703 7.86084 6.28516 8.03955C5.86328 8.22119 5.41064 8.31201 4.92725 8.31201ZM3.01123 6.49707C2.95557 6.6377 2.95703 6.75342 3.01562 6.84424C3.07422 6.93506 3.15918 6.98633 3.27051 6.99805C3.38184 7.00684 3.48877 6.95996 3.59131 6.85742L4.81738 5.63135C4.89062 5.55811 4.96387 5.55811 5.03711 5.63135L6.26318 6.85742C6.36572 6.95996 6.47266 7.00684 6.58398 6.99805C6.69531 6.98633 6.77881 6.93506 6.83447 6.84424C6.89307 6.75342 6.896 6.6377 6.84326 6.49707L5.32275 2.63428C5.27295 2.51123 5.19385 2.4292 5.08545 2.38818C4.97998 2.34717 4.87305 2.34863 4.76465 2.39258C4.65918 2.43359 4.58154 2.51562 4.53174 2.63867L3.01123 6.49707Z"
+          fill="#7C8187"
+        />
+      </svg>
+
+      <span
+        style="
+          /* Addresses */
+
+          width: 48px;
+          height: 11px;
+
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #7c8187;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        "
+        >Addresses
+      </span>
+    </button>
+    <!-- Button enabled -->
+    <button
+      id="address-tab-enabled"
+      style="
+        /* Frame 1513 */
+
+        box-sizing: border-box;
+
+        /* Auto layout */
+
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
+
+        width: 106px;
+        height: 27px;
+
+        background: #f2f2f2;
+        border: 1px solid #f2f2f2;
+        border-radius: 1000px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+      "
+    >
+      <!-- SVG enabled -->
+      <svg
+        style="
+          /* 􀷌 */
+
+          width: 11px;
+          height: 11px;
+
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #000000;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        "
+        width="10"
+        height="10"
+        viewBox="0 0 10 10"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4.92725 9.46777C5.56592 9.46777 6.16504 9.34619 6.72461 9.10303C7.28418 8.86279 7.77637 8.52881 8.20117 8.10107C8.62891 7.67627 8.96436 7.18408 9.20752 6.62451C9.45068 6.06494 9.57227 5.46582 9.57227 4.82715C9.57227 4.19141 9.45068 3.59375 9.20752 3.03418C8.96436 2.47461 8.62891 1.98096 8.20117 1.55322C7.77637 1.12549 7.28271 0.791504 6.72021 0.55127C6.16064 0.308105 5.56299 0.186523 4.92725 0.186523C4.2915 0.186523 3.69238 0.308105 3.12988 0.55127C2.57031 0.791504 2.07666 1.12549 1.64893 1.55322C1.22412 1.98096 0.890137 2.47461 0.646973 3.03418C0.406738 3.59375 0.286621 4.19141 0.286621 4.82715C0.286621 5.46582 0.406738 6.06494 0.646973 6.62451C0.890137 7.18408 1.22559 7.67627 1.65332 8.10107C2.08105 8.52881 2.57471 8.86279 3.13428 9.10303C3.69385 9.34619 4.2915 9.46777 4.92725 9.46777ZM4.92725 8.31201C4.44678 8.31201 3.99561 8.22119 3.57373 8.03955C3.15186 7.86084 2.78125 7.61328 2.46191 7.29688C2.14258 6.97754 1.89355 6.60693 1.71484 6.18506C1.53613 5.76318 1.44678 5.31055 1.44678 4.82715C1.44678 4.34375 1.53613 3.89258 1.71484 3.47363C1.89355 3.05176 2.14258 2.68115 2.46191 2.36182C2.78125 2.04248 3.15039 1.79346 3.56934 1.61475C3.99121 1.43311 4.44385 1.34229 4.92725 1.34229C5.41064 1.34229 5.86328 1.43311 6.28516 1.61475C6.70703 1.79346 7.07617 2.04248 7.39258 2.36182C7.71191 2.68115 7.9624 3.05176 8.14404 3.47363C8.32568 3.89258 8.4165 4.34375 8.4165 4.82715C8.4165 5.31055 8.32568 5.76318 8.14404 6.18506C7.96533 6.60693 7.71631 6.97754 7.39697 7.29688C7.07764 7.61328 6.70703 7.86084 6.28516 8.03955C5.86328 8.22119 5.41064 8.31201 4.92725 8.31201ZM3.01123 6.49707C2.95557 6.6377 2.95703 6.75342 3.01562 6.84424C3.07422 6.93506 3.15918 6.98633 3.27051 6.99805C3.38184 7.00684 3.48877 6.95996 3.59131 6.85742L4.81738 5.63135C4.89062 5.55811 4.96387 5.55811 5.03711 5.63135L6.26318 6.85742C6.36572 6.95996 6.47266 7.00684 6.58398 6.99805C6.69531 6.98633 6.77881 6.93506 6.83447 6.84424C6.89307 6.75342 6.896 6.6377 6.84326 6.49707L5.32275 2.63428C5.27295 2.51123 5.19385 2.4292 5.08545 2.38818C4.97998 2.34717 4.87305 2.34863 4.76465 2.39258C4.65918 2.43359 4.58154 2.51562 4.53174 2.63867L3.01123 6.49707Z"
+          fill="black"
+        />
+      </svg>
+
+      <span
+        style="
+          /* Addresses */
+
+          width: 48px;
+          height: 11px;
+
+          font-weight: 700;
+          font-size: 9px;
+          line-height: 11px;
+          /* identical to box height */
+
+          color: #000000;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        "
+        >Addresses
+      </span>
+    </button>
+  </div>
+
+  <!-- Autofill options -->
+  <div
+    id="scrolling-options"
+    style="order: 2"
+    class="unified-autofill-scrolling-section w-[250px] max-h-[200px]"
+  >
+    <!-- Card options -->
+    <div
+      id="cards-container"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      "
+      class=""
+    ></div>
+
+    <!-- Address options -->
+    <div
+      id="autofill-address-container"
+      style="
+        /* Auto layout */
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 8px;
+
+        width: 228px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+      "
+    ></div>
+  </div>
+</div>

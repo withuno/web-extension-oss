@@ -1,0 +1,64 @@
+name: Build & Test
+run-name: "Build & Test: ${{ github.event.pull_request.title }}"
+
+env:
+  node_version: 18
+  cache_version: v1
+  cache_namepace: pull-request
+  playwright_browsers: chrome
+  max_shards: 3
+
+on:
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  e2e:
+    name: Run End-to-end Tests (shard ${{ matrix.shard }})
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3] # Shard Playwright tests to reduce workflow duration
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node_version }}
+
+      - name: Restore cached dependencies
+        uses: actions/cache@v3
+        id: deps-cache
+        with:
+          path: |
+            **/node_modules
+            ~/.cache/ms-playwright
+          key: deps-cache-${{ runner.os }}-${{ env.cache_namespace }}-${{ hashFiles('**/package-lock.json') }}-${{ env.cache_version }}
+
+      - name: Install NPM dependencies
+        if: steps.deps-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Install Playwright browsers
+        if: steps.deps-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps ${{ env.playwright_browsers }}
+
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps ${{ env.playwright_browsers }}
+        if: steps.deps-cache.outputs.cache-hit == 'true'
+
+      - name: Run Playwright tests
+        run: npm run e2e -- --shard=${{ matrix.shard }}/${{ env.max_shards }}
+
+      - name: Archive Playwright report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report-${{ github.sha }}-shard-${{ matrix.shard }}-of-${{ env.max_shards }}
+          path: e2e/.artifacts/playwright-report/
+          retention-days: 7

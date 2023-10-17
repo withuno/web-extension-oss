@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/v1/*": ["v1/*"],
+      "@/v2/*": ["v2/*"],
+      "@/cli/*": ["cli/*"],
+      "@/e2e": ["e2e/client.ts"],
+      "@/bundle.config": ["bundle.config.ts"],
+    }
+  },
+
+  "include": [
+    "v1",
+    "v2",
+    "cli",
+    "e2e",
+    "env/env.d.ts",
+    "bundle.config.ts"
+  ],
+
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      "module": "commonjs",
+    },
+    "require": ["tsconfig-paths/register"]
+  },
+}

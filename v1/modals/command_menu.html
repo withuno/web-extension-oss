@@ -1,0 +1,139 @@
+<div
+  id="uno-modal-controller"
+  class="modal-in bg-white rounded-[16px] shadow-xl flex flex-col items-start w-full"
+>
+  <div
+    style="
+      /* Auto layout */
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+
+      width: 287px;
+      height: 56px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      align-self: stretch;
+      flex-grow: 0;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 16px;
+
+        width: 100%;
+        height: 24px;
+      "
+    >
+      <!-- Uno logo -->
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect width="24" height="24" rx="12" fill="#FC511F" />
+        <path
+          d="M13.5147 18.6005C11.5939 17.2415 11.1413 14.5892 12.5101 12.6932C13.879 10.7971 16.5505 10.3478 18.4603 11.6958C20.3812 13.0548 20.8227 15.7071 19.4649 17.6031C18.096 19.5101 15.4245 19.9595 13.5147 18.6005ZM16.2304 14.8084C16.0427 14.6769 15.7888 14.7207 15.6563 14.907C15.5239 15.0934 15.568 15.3454 15.7557 15.477C15.9434 15.6085 16.1973 15.5646 16.3297 15.3783C16.4512 15.203 16.4181 14.9399 16.2304 14.8084Z"
+          fill="white"
+        />
+        <path
+          d="M17.5328 9.78976C16.5613 10.1953 15.4243 9.74593 15.0158 8.78147C14.9275 8.57323 14.6846 8.47459 14.4749 8.56227C14.2651 8.64995 14.1658 8.89106 14.2541 9.0993C14.6626 10.0638 14.21 11.1926 13.2385 11.5981C12.256 12.0146 11.13 11.5543 10.7105 10.5898C9.80527 8.44171 10.8098 5.95385 12.9736 5.04419C15.1373 4.13453 17.6432 5.15379 18.5484 7.29094C18.9679 8.26636 18.5042 9.38425 17.5328 9.78976Z"
+          fill="white"
+        />
+        <path
+          d="M7.23311 8.84671C8.09418 9.46045 8.30393 10.6551 7.68572 11.5099C7.55325 11.6962 7.59741 11.9483 7.78508 12.0798C7.97275 12.2114 8.22665 12.1675 8.35912 11.9812C8.97732 11.1263 10.1806 10.9181 11.0417 11.5318C11.9027 12.1456 12.1125 13.3402 11.4943 14.1951C10.1254 16.1021 7.46494 16.5405 5.5441 15.1924C3.62326 13.8444 3.18169 11.1921 4.53952 9.29606C5.15772 8.43024 6.36101 8.23296 7.23311 8.84671Z"
+          fill="white"
+        />
+      </svg>
+      <input
+        id="cmd-menu-search"
+        class="cmd-menu-search outline-none focus:outline-none"
+        type="text"
+        placeholder="Type something..."
+        style="
+          width: 100%;
+          height: 13px;
+          border: none;
+          font-weight: 400;
+          font-size: 11px;
+          line-height: 13px;
+          outline: none;
+          box-shadow: none;
+
+          /* grayscale2 */
+
+          color: #717280;
+        "
+      />
+    </div>
+    <button
+      id="close-overlay"
+      class="uno-close-overlay"
+      style="
+        width: 19px;
+        height: 19px;
+
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+        letter-spacing: -0.004em;
+
+        color: #c6c8cc;
+      "
+    >
+      <svg
+        width="17"
+        height="17"
+        viewBox="0 0 17 17"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.36719 16.8281C12.7266 16.8281 16.3359 13.2109 16.3359 8.85938C16.3359 4.5 12.7188 0.890625 8.35938 0.890625C4.00781 0.890625 0.398438 4.5 0.398438 8.85938C0.398438 13.2109 4.01562 16.8281 8.36719 16.8281ZM5.74219 12.1406C5.38281 12.1406 5.10156 11.8516 5.10156 11.4922C5.10156 11.3203 5.16406 11.1562 5.28906 11.0391L7.45312 8.86719L5.28906 6.70312C5.16406 6.57812 5.10156 6.42188 5.10156 6.25C5.10156 5.88281 5.38281 5.60938 5.74219 5.60938C5.92188 5.60938 6.0625 5.67188 6.1875 5.78906L8.36719 7.96094L10.5625 5.78125C10.6953 5.64844 10.8359 5.59375 11.0078 5.59375C11.3672 5.59375 11.6562 5.875 11.6562 6.23438C11.6562 6.41406 11.6016 6.55469 11.4609 6.69531L9.28906 8.86719L11.4531 11.0312C11.5859 11.1484 11.6484 11.3125 11.6484 11.4922C11.6484 11.8516 11.3594 12.1406 10.9922 12.1406C10.8125 12.1406 10.6484 12.0781 10.5312 11.9531L8.36719 9.78125L6.21094 11.9531C6.08594 12.0781 5.92188 12.1406 5.74219 12.1406Z"
+          fill="#C6C8CC"
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    style="
+      width: 287px;
+      height: 0px;
+
+      border: 1px solid #f3f3f5;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 0;
+    "
+  />
+
+  <!-- MIKE; REMOVE THE X HIDDEN.  WE SHOULDN'T GO OVER ON THE X -->
+  <div
+    class="cmd-menu-scroll"
+    style="width: 287px; height: 347px; overflow-y: overlay; overflow-x: hidden"
+    id="menu-items-list"
+  ></div>
+</div>

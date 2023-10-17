@@ -1,0 +1,68 @@
+<div
+  id="uno-modal-controller"
+  class="modal-in bg-white rounded-[16px] shadow-xl flex flex-col items-start w-full p-[16px] gap-x-[16px]"
+  style="
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 8px rgba(0, 0, 0, 0.19);
+  "
+>
+  <div class="w-full flex items-center">
+    <div class="uno-modalContainer-header-logo mr-5">
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect width="40" height="40" rx="20" fill="#FC511F" />
+        <path
+          d="M22.5243 31.0021C19.3229 28.7371 18.5685 24.3167 20.85 21.1566C23.1315 17.9966 27.584 17.2476 30.767 19.4944C33.9684 21.7594 34.7043 26.1798 32.4413 29.3399C30.1598 32.5182 25.7073 33.2671 22.5243 31.0021ZM27.0504 24.682C26.7376 24.4628 26.3145 24.5359 26.0937 24.8464C25.8729 25.1569 25.9465 25.5771 26.2593 25.7962C26.572 26.0154 26.9952 25.9424 27.216 25.6319C27.4184 25.3396 27.3632 24.9012 27.0504 24.682Z"
+          fill="white"
+        />
+        <path
+          d="M29.2216 16.3163C27.6025 16.9921 25.7075 16.2432 25.0267 14.6358C24.8795 14.2887 24.4747 14.1243 24.1252 14.2705C23.7756 14.4166 23.61 14.8184 23.7572 15.1655C24.4379 16.7729 23.6836 18.6544 22.0645 19.3302C20.427 20.0243 18.5503 19.2571 17.8511 17.6497C16.3424 14.0695 18.0167 9.92308 21.6229 8.40698C25.2291 6.89088 29.4056 8.58965 30.9143 12.1516C31.6135 13.7773 30.8407 15.6404 29.2216 16.3163Z"
+          fill="white"
+        />
+        <path
+          d="M12.0554 14.7454C13.4905 15.7683 13.8401 17.7594 12.8098 19.1841C12.589 19.4947 12.6626 19.9148 12.9754 20.134C13.2882 20.3532 13.7113 20.2801 13.9321 19.9696C14.9625 18.5448 16.9679 18.1978 18.403 19.2207C19.8381 20.2436 20.1877 22.2346 19.1574 23.6594C16.8759 26.8377 12.4418 27.5683 9.24041 25.3216C6.03901 23.0748 5.30305 18.6544 7.56611 15.4943C8.59645 14.0513 10.6019 13.7225 12.0554 14.7454Z"
+          fill="white"
+        />
+      </svg>
+    </div>
+
+    <!-- SLIDER STARTS -->
+    <div class="flex cursor-pointer flex-grow">
+      <div
+        class="w-full bg-white h-[40px] rounded-full border-2 border-[#B0FF00] overflow-hidden flex relative items-center"
+        id="confirm-save-login"
+      >
+        <p class="mx-auto z-50 font-[510] text-[11px]">
+          <span id="timer-text">Saving Login</span>
+          <span
+            class="text-[7px] font-[800] text-[#264e25] bg-[#B0FF00] p-[4px] rounded ml-[4px] align-middle"
+            >ENTER</span
+          >
+        </p>
+        <div
+          class="h-[40px] bg-[#B0FF00] absolute z-40 overflow-hidden"
+          style="width: 45%"
+          id="modal-timer"
+        ></div>
+      </div>
+    </div>
+    <!-- SLIDER ENDS -->
+  </div>
+
+  <div class="w-full">
+    <div
+      class="flex items-center justify-center mt-[16px] p-3 cursor-pointer text-center bg-[#f7f8f9] text-[#717280] font-[700] rounded-full"
+      id="cancel-save-login"
+    >
+      <span class="text-[9px] mr-1.5">CANCEL</span>
+      <span
+        class="text-[8px] p-1 rounded bg-[#717280] text-white"
+        >ESC</span
+      >
+    </div>
+  </div>
+</div>

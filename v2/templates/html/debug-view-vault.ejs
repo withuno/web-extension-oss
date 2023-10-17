@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Uno" />
+    <link href="images/favicon.png" rel="shortcut icon" type="image/png" />
+    <link href="images/webclip.png" rel="apple-touch-icon" />
+    <link href="debug-view-vault.entry.css" rel="stylesheet" type="text/css" />
+    <title>Uno — Vault</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- Vendor entry-points -->
+    <%_ vendors.map((scriptSrc) => { _%>
+    <script src="<%= scriptSrc %>"></script>
+    <%_ }).join(", ") _%>
+
+    <!-- Bundle entry-point -->
+    <script src="debug-view-vault.entry.js"></script>
+  </body>
+</html>

@@ -1,0 +1,634 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* -------------------------------------------------------------------------- */
+/* @start V1_COMPAT (CSS reset) */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: theme('borderColor.DEFAULT', currentColor);
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: theme('fontFamily.sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: theme('fontFamily.mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+:-moz-focusring {
+  outline: auto;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dialog {
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: theme('colors.gray.400', #9ca3af);
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: default;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* @end V1_COMPAT (CSS reset) */
+/* -------------------------------------------------------------------------- */
+
+#uno-modal-controller {
+  /*
+    UNO-1121: force default text color as black to fix
+    white-text-on-white-b.g. for macOS dark-mode users.
+
+    TODO: proper dark mode support!
+   */
+  color: #000;
+}
+
+.uno-overlay-header {
+  margin-bottom: 16px;
+}
+
+.uno-overlay-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.uno-close-overlay {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.uno-feedback-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffd9d9;
+  border-radius: 10000px;
+  width: 18px;
+  height: 18px;
+  margin-right: 16px;
+}
+
+.modal-in {
+  animation: opac 0.4s;
+}
+
+@keyframes opac {
+  from {
+    opacity: 0;
+    transform: translateY(-4%);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-out {
+  animation: show 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4%);
+  }
+}
+
+/* Stuff for barber style loading */
+.barberContainer {
+  width: 84px;
+  height: 306px;
+  position: absolute;
+  top: -104px;
+  left: 130px;
+  transform: translate(-50%, -50%);
+  transform: scaleX(-1) rotate(90deg);
+  z-index: 100000000;
+}
+
+.barberWrap {
+  background-color: #fc511f;
+  height: 204px;
+  width: 54px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 16px;
+}
+
+.barber {
+  height: 204px;
+  width: 54px;
+  position: inherit;
+  background: #ff7612;
+  border-radius: 16px;
+  background-color: -webkit-linear-gradient(
+    -45deg,
+    transparent 25%,
+    #ff7612 25%,
+    #ff7612 50%,
+    transparent 50%,
+    transparent 75%,
+    #ff7612 75%
+  );
+  background: -moz-linear-gradient(
+    -45deg,
+    transparent 25%,
+    #ff7612 25%,
+    #ff7612 50%,
+    transparent 50%,
+    transparent 75%,
+    #ff7612 75%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    transparent 25%,
+    #ff7612 25%,
+    #ff7612 50%,
+    transparent 50%,
+    transparent 75%,
+    #ff7612 75%
+  );
+  background: linear-gradient(
+    -45deg,
+    transparent 25%,
+    #ff7612 25%,
+    #ff7612 50%,
+    transparent 50%,
+    transparent 75%,
+    #ff7612 75%
+  );
+  background-size: 27px 27px;
+  -webkit-animation: barberpole 1.5s infinite linear;
+  animation: barberpole 1.5s infinite linear;
+}
+
+@keyframes barberpole {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+/* If the form is invalid, make the button appear disabled */
+form:invalid .ccModalSubmit {
+  background: #f7f8f9;
+}
+
+/* If the form is valid, make the button appear enabled */
+form:valid .ccModalSubmit {
+  background: #b0ff00;
+}
+form:valid .ccModalSubmitSaveText {
+  color: #264e25 !important;
+}
+form:valid .ccModalSubmitEnterText {
+  color: #264e25 !important;
+}
+form:valid .ccModalSubmitEnterTextBG {
+  background: #ffffff !important;
+}
+
+input:invalid {
+  box-sizing: border-box !important;
+  border: 1px solid #fc511f !important;
+  border-radius: 10000px !important;
+}
+
+input:invalid::-webkit-input-placeholder {
+  font-weight: 510;
+  color: #000000;
+}
+
+input:valid {
+  box-sizing: border-box;
+  border: 1px solid #e7e8ea;
+  border-radius: 10000px;
+}
+
+.unified-autofill-scrolling-section {
+  overflow: scroll;
+}
+
+.unified-autofill-scrolling-section::-webkit-scrollbar {
+  display: none !important;
+}
+
+.unified-autofill-scrolling-section {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Very helpful resource for this stuff:
+ https://stackoverflow.com/a/39540523/6436709 */
+
+.autofillCC {
+  cursor: pointer;
+}
+
+.autofillCC:hover {
+  cursor: pointer;
+}
+
+/* .autofillCC:hover .autofillCCBig-badgeAndDetails {
+  width: 152.34px !important;
+  height: 45.04px !important;
+  transform: scale(1.3, 1.3);
+  transition: 0.3s ease-in-out;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  transform-origin: left top;
+} */
+.autofillCCBig-badgeAndDetails {
+  width: 152.34px !important;
+  height: 45.04px !important;
+  transition: 0.3s ease-in-out;
+}
+
+.autofillCC:hover .autofillCCBig-kbshortcut {
+  transform: scale(1.3, 1.3);
+  transition: 0.3s ease-in-out;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.autofillCCBig-kbshortcut {
+  transition: 0.3s ease-in-out;
+}
+
+.autofillCC:hover .autofillCCBig-badgeContainer {
+  border-radius: 6.85714px;
+  transform: rotate(-11.78deg) scale(1.3, 1.3);
+  transition: 0.3s ease-in-out;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.autofillCCBig-badgeContainer {
+  transition: 0.3s ease-in-out;
+}
+
+/* .autofillCC:hover .autofillCCBig-badge {
+  width: 48px !important;
+  height: 36px !important;
+} */
+
+.autofillCC:hover .autofillCCBig-details {
+  width: 82px !important;
+  height: 30px !important;
+}
+
+.autofillCC:hover .autofillCCBig-detailsName {
+  transform: scale(1.2, 1.2);
+  transition: 0.3s ease-in-out;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  transform-origin: left top;
+  overflow: hidden;
+}
+
+.autofillCCBig-detailsName {
+  transition: 0.3s ease-in-out;
+  transform-origin: left top;
+  overflow: hidden;
+}
+
+.autofillCC:hover .autofillCCBig-detailsLastFour {
+  transform: scale(1.2, 1.2);
+  transition: 0.3s ease-in-out;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  transform-origin: left top;
+}
+
+.autofillCCBig-detailsLastFour {
+  transition: 0.3s ease-in-out;
+  transform-origin: left top;
+}
+
+.cmd-menu-search:focus {
+  outline: none;
+}
+
+.cmd-menu-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.feedback-button {
+  /* Frame 1471 */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+
+  width: 228px;
+  height: 44px;
+
+  /* Extension Gray */
+
+  border: 1px solid #e7e8ea;
+  border-radius: 100000px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  text-align: start;
+}
+.feedback-button:hover {
+  background: #eeeff2;
+}
+.feedback-button:focus {
+  background: #e7e8eb;
+}
+
+.feedback-button-inner {
+  font-style: normal;
+  font-weight: 510;
+  font-size: 10px;
+  line-height: 12px;
+  /* identical to box height */
+
+  color: #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.additional-details-input {
+  /* Frame 1492 */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+  font-size: 10px;
+
+  width: 228px;
+  height: 100px;
+
+  resize: none;
+  line-height: unset;
+
+  /* Extension Gray */
+
+  border: 1px solid #e7e8ea !important;
+  border-radius: 16px !important;
+
+  /* Inside auto layout */
+
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.uno-close-overlay-new {
+  width: 20px;
+  height: 20px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.004em;
+
+  /* grayscale3 */
+
+  color: #ced6df;
+}

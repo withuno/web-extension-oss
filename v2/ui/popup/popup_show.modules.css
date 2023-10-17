@@ -1,0 +1,421 @@
+.vault-item-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.copy-button {
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 8px;
+  line-height: 18px;
+
+  color: #989faa;
+}
+
+.save-button {
+  border: 0px;
+  cursor: pointer;
+}
+
+.header {
+  /* Frame 1052 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.service-details {
+  /* Frame 1378 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.back-target {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.action-button {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+
+  background: #f7f8f9;
+  border-radius: 10000px;
+}
+
+.action-button:hover {
+  background: #eeeff2;
+}
+.action-button:focus {
+  background-color: #e7e8eb;
+}
+
+.vault-item-name {
+  width: 100%;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 18px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+  letter-spacing: 0.01em;
+
+  color: #000000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.vault-item-button {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 9px;
+  gap: 10px;
+
+  width: 16px;
+  height: 16px;
+
+  /* grayscale4 */
+  background: #f7f8f9;
+  border-radius: 10000px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.content-container {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.primary-content {
+  width: 100%;
+  /* Frame 1417 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  border: 1px solid #f7f8f9;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.primary-content-text-container {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+
+  /* grayscale4 */
+  border: 1px solid #f7f8f9;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: -1px 0px;
+}
+
+.primary-content-item-container {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+
+  /* grayscale4 */
+  border-bottom: 1px solid #f7f8f9;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: -1px 0px;
+}
+
+.primary-content-item-container-last {
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: -1px 0px;
+}
+
+.primary-content-item {
+  /* Frame 1372 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.primary-content-item-left {
+  /* Frame 1037 */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.primary-content-item-label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #a6a8ac;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.primary-content-item-value {
+  width: 283px;
+  overflow-wrap: anywhere;
+  line-break: anywhere;
+
+  white-space: pre-line;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #000000;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.primary-content-item-value:disabled {
+  background-color: white;
+}
+
+.primary-content-item-right {
+  /* Right Content */
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 8px;
+  gap: 12px;
+
+  background: #f8f8f8;
+  border-radius: 48px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.primary-content-item-right:hover {
+  background: #f1f1f1;
+}
+.primary-content-item-right:focus {
+  background: #e9e8e8;
+}
+
+.secondary-content {
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+
+  /* grayscale4 */
+  border: 1px solid #f7f8f9;
+  border-radius: 8px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.vault-item-ellipse {
+  /* Service Icon */
+  border: 1px solid #e6e6e6;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+  order: 0;
+}
+/* Couldn't figure out what is setting stuff.  This unsets it all */
+button {
+  appearance: unset;
+  writing-mode: unset;
+  font-style: unset;
+  font-variant-ligatures: unset;
+  font-variant-caps: unset;
+  font-variant-numeric: unset;
+  font-variant-east-asian: unset;
+  font-weight: unset;
+  font-stretch: unset;
+  font-size: unset;
+  font-family: unset;
+  text-rendering: unset;
+  color: unset;
+  letter-spacing: unset;
+  word-spacing: unset;
+  line-height: unset;
+  text-transform: unset;
+  text-indent: unset;
+  text-shadow: unset;
+  display: unset;
+  text-align: unset;
+  align-items: unset;
+  cursor: unset;
+  box-sizing: unset;
+  background-color: unset;
+  margin: unset;
+  padding: unset;
+  border-width: unset;
+  border-style: unset;
+  border-color: unset;
+  border-image: unset;
+}
+
+.separator {
+  /* Line 97 */
+  height: 0px;
+
+  /* grayscale4 */
+
+  border: 1px solid #f7f8f9;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.spinner-container {
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spinner {
+  position: absolute;
+  left: 184px;
+  top: 234px;
+
+  animation: spin 3s linear infinite;
+  width: 32px;
+  height: 32px;
+}

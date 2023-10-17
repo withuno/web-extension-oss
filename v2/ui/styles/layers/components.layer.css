@@ -1,0 +1,10 @@
+@layer components {
+  /*
+    Custom extensions to Tailwind's "components" layer can be added here.
+
+    Typically, we don't require this feature for our application (because we use
+    React). However, this flexibility is available to us should we find a reason
+    to use it. For now, we leave this here in order to maintain a consistent
+    pattern with the rest of our global CSS architecture.
+   */
+}

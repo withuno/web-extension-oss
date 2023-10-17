@@ -1,0 +1,117 @@
+body {
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #ffffff;
+}
+
+.container {
+  overflow: auto;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 400px;
+  height: 520px;
+
+  left: calc(50% - 380px / 2);
+  top: calc(50% - 460px / 2 + 57px);
+
+  background: #ffffff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.06), 0px 4px 19px rgba(0, 0, 0, 0.05);
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.onboard-container {
+  margin: auto;
+}
+
+.onboard-container > a {
+  cursor: pointer;
+}
+
+.spinner-container {
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spinner {
+  position: absolute;
+  left: 184px;
+  top: 234px;
+
+  animation: spin 3s linear infinite;
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Couldn't figure out what is setting stuff.  This unsets it all */
+button {
+  appearance: unset;
+  writing-mode: unset;
+  font-style: unset;
+  font-variant-ligatures: unset;
+  font-variant-caps: unset;
+  font-variant-numeric: unset;
+  font-variant-east-asian: unset;
+  font-weight: unset;
+  font-stretch: unset;
+  font-size: unset;
+  font-family: unset;
+  text-rendering: unset;
+  color: unset;
+  letter-spacing: unset;
+  word-spacing: unset;
+  line-height: unset;
+  text-transform: unset;
+  text-indent: unset;
+  text-shadow: unset;
+  display: unset;
+  text-align: unset;
+  align-items: unset;
+  cursor: unset;
+  box-sizing: unset;
+  background-color: unset;
+  margin: unset;
+  padding: unset;
+  border-width: unset;
+  border-style: unset;
+  border-color: unset;
+  border-image: unset;
+}
+
+.clearbit-container {
+  font-size: 12px;
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.clearbit-container > a {
+  text-decoration: none;
+  color: #95969D;
+}
+
+.error-container {
+  padding: 16px 16px 0px 16px;
+}
+
+.error-message {
+  color: white;
+  background-color: #FC511F;
+  border-radius: 8px;
+  padding: 8px;
+}

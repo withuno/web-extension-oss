@@ -1,0 +1,70 @@
+name: Internal Release
+run-name: Internal Release
+
+env:
+  node_version: 18
+  cache_version: v1
+  cache_namepace: release
+
+on:
+  push:
+    branches: [next]
+
+jobs:
+  internal-release:
+    name: Build & Create Release
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    concurrency: release
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.DCOW_ADMIN_TOKEN_FOR_AUTO }}
+
+      - name: Fetch Git tags
+        run: git fetch --tags
+
+      - name: "Configure Git: email (builder@uno.app)"
+        run: git config --global user.email "builder@uno.app"
+
+      - name: "Configure Git: name (Uno Team)"
+        run: git config --global user.name "Uno Team"
+
+      - name: Restore cached dependencies
+        uses: actions/cache@v3
+        id: deps-cache
+        with:
+          path: |
+            **/node_modules
+          key: deps-cache-${{ runner.os }}-${{ env.cache_namespace }}-${{ hashFiles('**/package-lock.json') }}-${{ env.cache_version }}
+
+      - name: Install NPM dependencies
+        if: steps.deps-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Increment pre-release version
+        id: version
+        run: |
+          latest_version=$(git describe --tags `git rev-list --tags --max-count=1`)
+          next_version=$(npx semver $latest_version -i prerelease --preid next)
+          echo "next_version=$next_version" >> $GITHUB_OUTPUT
+          npm version $next_version -m "v%s [skip ci]"
+
+      - name: Build internal release
+        run: npm run build.internal
+
+      - name: Push pre-release tags
+        run: git push --follow-tags
+
+      # See: https://github.com/softprops/action-gh-release
+      - name: Create release notes
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          token: ${{ secrets.DCOW_ADMIN_TOKEN_FOR_AUTO }}
+          generate_release_notes: true
+          prerelease: true
+          tag_name: ${{ steps.version.outputs.next_version }}
+          files: |
+            uno-v${{ steps.version.outputs.next_version }}.zip
