@@ -4,7 +4,7 @@
   "description": "Uno's Web Extension",
   "private": true,
   "author": "WithUno, Inc",
-  "license": "ISC",
+  "license": "MIT",
   "workspaces": [
     "cli",
     "e2e"
